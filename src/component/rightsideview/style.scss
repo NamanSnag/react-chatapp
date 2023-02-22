@@ -62,4 +62,45 @@
             }   
         }
     }
+
+    .chats {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        height: 85%;
+        overflow: scroll;
+
+        img {
+            width: 20px;
+            height: 20px;
+            border-radius: 2rem;
+        }
+
+        .rightChat {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 6px;
+        }
+
+        .leftChat {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 6px;
+        }
+    }
+
+    .poem {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 90%;
+        gap: 20px;
+
+        h3 {
+            width: 50%;
+        }
+    }
 }

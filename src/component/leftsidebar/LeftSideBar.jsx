@@ -1,145 +1,96 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+
+import contactList from "../../data/conversation";
 
 import "./style.scss";
 
 const LeftSidebar = () => {
+  const [conversation, setConversation] = useState(contactList);
+  const [search, setSearch] = useState("");
+  const [openConversation, setOpenConversation] = useState(false);
+
+  const filteredContactList = conversation.filter((contact) => {
+    return contact.name.toLowerCase().includes(search.toLowerCase());
+  });
+
+  const contact = useRef();
+  const image = useRef();
+
+  const addContact = (e) => {
+    e.preventDefault();
+    let id = conversation.length + 2;
+    let name = contact.current.value;
+    let avatar = image.current.value;
+    if (name == "" && avatar == "") {
+      setOpenConversation(false);
+      alert("Please enter a name and avatar");
+      return;
+    }
+    const newContact = {
+      id: id,
+      name: name,
+      avatar: avatar,
+      messages: [],
+    };
+    setConversation((prev) => {
+      return [...prev, newContact];
+    });
+    contact.current.value = "";
+    image.current.value = "";
+    setOpenConversation(false);
+  };
+
   return (
     <section className="left">
       <div className="fixed">
-        <div className="search">
+        <div className="searchbox">
           <input
-            type="text"
+            type="search"
             className="searchInput"
+            onChange={(e) => {
+              setSearch(e.target.value);
+            }}
+            value={search}
             placeholder="Search for conversation"
           />
         </div>
-        <div className="addCon">
-          <p>CONVERSATIONS</p>
-          <button>+</button>
+        <div>
+          {openConversation ? (
+            <>
+              <div className="addCon">
+                <p>CONVERSATIONS</p>
+              </div>
+              <form onSubmit={addContact} className="search">
+                <input type="text" ref={contact} placeholder="Enter name" />
+                <input type="url" ref={image} placeholder="Enter image url" />
+                <button>+ Add</button>
+              </form>
+            </>
+          ) : (
+            <div className="addCon">
+              <p>CONVERSATIONS</p>
+              <button onClick={() => setOpenConversation(true)}>+</button>
+            </div>
+          )}
         </div>
       </div>
 
       <div className="contactList">
-        <div className="contact">
-          <img
-            src="https://images.unsplash.com/photo-1634698813343-e2b78707c06b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGtyaXNobmF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-            alt="list"
-          />
-          <div className="contactText">
-            <p className="name">krishna</p>
-            <p>hi, Naman can we go for walk</p>
-          </div>
-        </div>
-        <div className="contact">
-          <img
-            src="https://images.unsplash.com/photo-1634698813343-e2b78707c06b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGtyaXNobmF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-            alt="list"
-          />
-          <div className="contactText">
-            <p className="name">krishna</p>
-            <p>hi, Naman can we go for walk</p>
-          </div>
-        </div>
-        <div className="contact">
-          <img
-            src="https://images.unsplash.com/photo-1634698813343-e2b78707c06b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGtyaXNobmF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-            alt="list"
-          />
-          <div className="contactText">
-            <p className="name">krishna</p>
-            <p>hi, Naman can we go for walk</p>
-          </div>
-        </div>
-        <div className="contact">
-          <img
-            src="https://images.unsplash.com/photo-1634698813343-e2b78707c06b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGtyaXNobmF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-            alt="list"
-          />
-          <div className="contactText">
-            <p className="name">krishna</p>
-            <p>hi, Naman can we go for walk</p>
-          </div>
-        </div>
-        <div className="contact">
-          <img
-            src="https://images.unsplash.com/photo-1634698813343-e2b78707c06b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGtyaXNobmF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-            alt="list"
-          />
-          <div className="contactText">
-            <p className="name">krishna</p>
-            <p>hi, Naman can we go for walk</p>
-          </div>
-        </div>
-        <div className="contact">
-          <img
-            src="https://images.unsplash.com/photo-1634698813343-e2b78707c06b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGtyaXNobmF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-            alt="list"
-          />
-          <div className="contactText">
-            <p className="name">krishna</p>
-            <p>hi, Naman can we go for walk</p>
-          </div>
-        </div>
-        <div className="contact">
-          <img
-            src="https://images.unsplash.com/photo-1634698813343-e2b78707c06b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGtyaXNobmF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-            alt="list"
-          />
-          <div className="contactText">
-            <p className="name">krishna</p>
-            <p>hi, Naman can we go for walk</p>
-          </div>
-        </div>
-        <div className="contact">
-          <img
-            src="https://images.unsplash.com/photo-1634698813343-e2b78707c06b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGtyaXNobmF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-            alt="list"
-          />
-          <div className="contactText">
-            <p className="name">krishna</p>
-            <p>hi, Naman can we go for walk</p>
-          </div>
-        </div>
-        <div className="contact">
-          <img
-            src="https://images.unsplash.com/photo-1634698813343-e2b78707c06b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGtyaXNobmF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-            alt="list"
-          />
-          <div className="contactText">
-            <p className="name">krishna</p>
-            <p>hi, Naman can we go for walk</p>
-          </div>
-        </div>
-        <div className="contact">
-          <img
-            src="https://images.unsplash.com/photo-1634698813343-e2b78707c06b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGtyaXNobmF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-            alt="list"
-          />
-          <div className="contactText">
-            <p className="name">krishna</p>
-            <p>hi, Naman can we go for walk</p>
-          </div>
-        </div>
-        <div className="contact">
-          <img
-            src="https://images.unsplash.com/photo-1634698813343-e2b78707c06b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGtyaXNobmF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-            alt="list"
-          />
-          <div className="contactText">
-            <p className="name">krishna</p>
-            <p>hi, Naman can we go for walk</p>
-          </div>
-        </div>
-        <div className="contact">
-          <img
-            src="https://images.unsplash.com/photo-1634698813343-e2b78707c06b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGtyaXNobmF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-            alt="list"
-          />
-          <div className="contactText">
-            <p className="name">krishna</p>
-            <p>hi, Naman can we go for walk</p>
-          </div>
-        </div>
+        {filteredContactList &&
+          filteredContactList.map((item, index) => {
+            return (
+              <Link key={index} to={`/chat/${item.id}`} style={{textDecoration: 'none'}}>
+                <div className="contact">
+                  <img src={item.avatar} alt="" />
+                  <div className="contactText">
+                    <p className="name">{item.name}</p>
+                    {item.lastMessage && <p>{item.lastMessage}</p>}
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
       </div>
     </section>
   );
