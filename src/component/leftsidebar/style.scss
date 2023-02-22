@@ -1,0 +1,89 @@
+.left {
+  background-color: rgb(255, 255, 255);
+  width: 30%;
+  max-width: 320px;
+  min-width: 200px;
+  position: relative;
+  overflow: scroll;
+
+  .fixed {
+    position: sticky;
+    top: 0;
+    background-color: rgb(255, 255, 255);
+    padding: 20px 10px 10px 10px;
+    .searchInput {
+      width: 90%;
+      outline: none;
+      border: none;
+      padding: 10px 20px;
+      background-color: rgb(243, 243, 243);
+    }
+
+    .addCon {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 25px 12px;
+
+      p {
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        color: rgb(37, 36, 36);
+      }
+
+      button {
+        font-size: 20px;
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+        border: 1px solid gray;
+        background-color: transparent;
+        color: rgb(74, 74, 74);
+
+        &:hover {
+          background-color: rgb(237, 237, 237);
+        }
+      }
+    }
+  }
+
+  .contactList {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 20px;
+    gap: 20px;
+
+    .contact {
+        display: flex;
+        gap: 18px;
+
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 2rem;
+        }
+
+        .contactText {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            p {
+                color: gray;
+                font-size: 14px;
+            }
+
+            .name {
+                font-size: 16px;
+                font-weight: 500;
+                color: black;
+            }
+        }
+    }
+  }
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

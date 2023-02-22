@@ -1,0 +1,65 @@
+.right {
+    width: 100%;
+    margin-left: 2px;
+    padding: 16px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+
+    .nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60px;
+        position: sticky;
+        top: 0;
+        border-bottom: 1px solid rgb(144, 142, 142);
+
+        img {
+            height: 40px;
+            width: 40px;
+            border-radius: 2rem;
+            margin-right: 10px;
+        }
+    }
+
+    .msg {
+        display: flex;
+        justify-content: center;
+
+        .send {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid black;
+            width: 60vw;
+            border-radius: 2rem;
+            overflow: hidden;
+            position: fixed;
+            bottom: 20px;
+    
+            input {
+                width: 100%;
+                padding: 10px;
+                border: none;
+                outline: none;
+
+                &:focus {
+                    background-color: rgb(230, 230, 230);
+                }
+            }
+    
+            button {
+                padding: 10px;
+                height: 100%;
+                border: none;
+                color: white;
+                letter-spacing: 1px;
+                background-color: rgb(0, 145, 255);
+
+                &:hover {
+                    background-color: rgba(0, 55, 255, 0.805);
+                }
+            }   
+        }
+    }
+}
