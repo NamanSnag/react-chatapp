@@ -1,16 +1,17 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
-import contactList from "../../data/conversation";
 
 import "./style.scss";
 
 const LeftSidebar = () => {
-  const [conversation, setConversation] = useState(contactList);
   const [search, setSearch] = useState("");
   const [openConversation, setOpenConversation] = useState(false);
+  
+  const contactList = useSelector(state => state.contacts)
+  const dispatch = useDispatch();
 
-  const filteredContactList = conversation.filter((contact) => {
+  const filteredContactList = contactList.filter((contact) => {
     return contact.name.toLowerCase().includes(search.toLowerCase());
   });
 
@@ -19,10 +20,11 @@ const LeftSidebar = () => {
 
   const addContact = (e) => {
     e.preventDefault();
-    let id = conversation.length + 2;
+    let n = contactList.length + 2;
+    let id = `${n}`;
     let name = contact.current.value;
     let avatar = image.current.value;
-    if (name == "" && avatar == "") {
+    if (name === "" && avatar === "") {
       setOpenConversation(false);
       alert("Please enter a name and avatar");
       return;
@@ -33,8 +35,10 @@ const LeftSidebar = () => {
       avatar: avatar,
       messages: [],
     };
-    setConversation((prev) => {
-      return [...prev, newContact];
+    contactList.push(newContact);
+    dispatch({ 
+      type: "CONTACT_LIST", 
+      payload: contactList 
     });
     contact.current.value = "";
     image.current.value = "";

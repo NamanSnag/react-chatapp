@@ -1,18 +1,54 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { VscRocket } from "react-icons/vsc";
-
-import contactList from "../../data/conversation";
+import { useDispatch, useSelector } from "react-redux";
 
 import "./style.scss";
 
 const RightSideView = () => {
   const [contact, setContact] = useState(null);
+  const [ msg, setMsg ] = useState(false);
   const { id } = useParams();
+
+  const contactList = useSelector(state=> state.contacts);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setContact(contactList.find((item) => item.id === id));
-  }, [contact, id]);
+  }, [contact,contactList, id]);
+
+  const message = useRef();
+
+  const sendMessage = (e) => {
+    e.preventDefault();
+    let newMessage = message.current.value;
+    if(newMessage === ""){
+      alert("Write Message, please!");
+      return;
+    }
+    let msg = {
+      "id": "1",
+      "message": newMessage,
+      "avatar": "https://images.unsplash.com/photo-1617330527074-fe659f90e7b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bmFtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60" 
+    }
+    let newList = contactList.map(contact => {
+      if (contact.id === id) {
+        return {
+          ...contact,
+          messages: [...contact.messages, msg],
+          lastMessage: newMessage
+        };
+      }
+      return contact;
+    });
+    dispatch({ 
+      type: "CONTACT_LIST", 
+      payload: newList 
+    });
+    message.current.value = ""
+    setMsg(true);
+  }
 
   return (
     <div className="right">
@@ -25,27 +61,27 @@ const RightSideView = () => {
 
           <section className="chats">
             {contact.messages.map((chat,i) =>
-              chat.id == 1 ? (
+              chat.id === "1" ? (
                 <div key={`right${id}${i}`} className="rightChat">
                   <img src={chat.avatar} alt="profile" />
-                  <h3>{chat.message}</h3>
+                  <h4>{chat.message}</h4>
                 </div>
               ) : (
                 <div key={`left${id}${i}`} className="leftChat">
                   <img src={chat.avatar} alt="profile" />
-                  <h3>{chat.message}</h3>
+                  <h4>{chat.message}{msg}</h4>
                 </div>
               )
             )}
           </section>
 
           <section className="msg">
-            <div className="send">
-              <input type="text" placeholder="Type your message here..." />
+            <form onSubmit={sendMessage} className="send">
+              <input type="text" ref={message} placeholder="Type your message here..." />
               <button>
                 <VscRocket />
               </button>
-            </div>
+            </form>
           </section>
         </>
       ) : (

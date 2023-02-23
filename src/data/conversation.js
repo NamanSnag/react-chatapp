@@ -5,11 +5,6 @@ const contactList = [
     "avatar": "https://picsum.photos/id/237/200/300",
     "messages": [
       {
-        "id": "1",
-        "message": "Hey, how are you doing?",
-        "avatar": "https://images.unsplash.com/photo-1617330527074-fe659f90e7b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bmFtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60"
-      },
-      {
         "id": "2",
         "message": "I'm doing great, thanks for asking. How about you?",
         "avatar": "https://picsum.photos/id/237/200/300"
@@ -18,126 +13,6 @@ const contactList = [
         "id": "1",
         "message": "Hey, how are you doing?",
         "avatar": "https://images.unsplash.com/photo-1617330527074-fe659f90e7b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bmFtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60"
-      },
-      {
-        "id": "2",
-        "message": "I'm doing great, thanks for asking. How about you?",
-        "avatar": "https://picsum.photos/id/237/200/300"
-      },
-      {
-        "id": "1",
-        "message": "Hey, how are you doing?",
-        "avatar": "https://images.unsplash.com/photo-1617330527074-fe659f90e7b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bmFtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60"
-      },
-      {
-        "id": "2",
-        "message": "I'm doing great, thanks for asking. How about you?",
-        "avatar": "https://picsum.photos/id/237/200/300"
-      },
-      {
-        "id": "2",
-        "message": "I'm doing great, thanks for asking. How about you?",
-        "avatar": "https://picsum.photos/id/237/200/300"
-      },
-      {
-        "id": "1",
-        "message": "Hey, how are you doing?",
-        "avatar": "https://images.unsplash.com/photo-1617330527074-fe659f90e7b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bmFtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60"
-      },
-      {
-        "id": "2",
-        "message": "I'm doing great, thanks for asking. How about you?",
-        "avatar": "https://picsum.photos/id/237/200/300"
-      },
-      {
-        "id": "2",
-        "message": "I'm doing great, thanks for asking. How about you?",
-        "avatar": "https://picsum.photos/id/237/200/300"
-      },
-      {
-        "id": "1",
-        "message": "Hey, how are you doing?",
-        "avatar": "https://images.unsplash.com/photo-1617330527074-fe659f90e7b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bmFtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60"
-      },
-      {
-        "id": "2",
-        "message": "I'm doing great, thanks for asking. How about you?",
-        "avatar": "https://picsum.photos/id/237/200/300"
-      },
-      {
-        "id": "2",
-        "message": "I'm doing great, thanks for asking. How about you?",
-        "avatar": "https://picsum.photos/id/237/200/300"
-      },
-      {
-        "id": "1",
-        "message": "Hey, how are you doing?",
-        "avatar": "https://images.unsplash.com/photo-1617330527074-fe659f90e7b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bmFtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60"
-      },
-      {
-        "id": "2",
-        "message": "I'm doing great, thanks for asking. How about you?",
-        "avatar": "https://picsum.photos/id/237/200/300"
-      },
-      {
-        "id": "2",
-        "message": "I'm doing great, thanks for asking. How about you?",
-        "avatar": "https://picsum.photos/id/237/200/300"
-      },
-      {
-        "id": "1",
-        "message": "Hey, how are you doing?",
-        "avatar": "https://images.unsplash.com/photo-1617330527074-fe659f90e7b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bmFtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60"
-      },
-      {
-        "id": "2",
-        "message": "I'm doing great, thanks for asking. How about you?",
-        "avatar": "https://picsum.photos/id/237/200/300"
-      },
-      {
-        "id": "2",
-        "message": "I'm doing great, thanks for asking. How about you?",
-        "avatar": "https://picsum.photos/id/237/200/300"
-      },
-      {
-        "id": "1",
-        "message": "Hey, how are you doing?",
-        "avatar": "https://images.unsplash.com/photo-1617330527074-fe659f90e7b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bmFtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60"
-      },
-      {
-        "id": "2",
-        "message": "I'm doing great, thanks for asking. How about you?",
-        "avatar": "https://picsum.photos/id/237/200/300"
-      },
-      {
-        "id": "2",
-        "message": "I'm doing great, thanks for asking. How about you?",
-        "avatar": "https://picsum.photos/id/237/200/300"
-      },
-      {
-        "id": "2",
-        "message": "I'm doing great, thanks for asking. How about you?",
-        "avatar": "https://picsum.photos/id/237/200/300"
-      },
-      {
-        "id": "2",
-        "message": "I'm doing great, thanks for asking. How about you?",
-        "avatar": "https://picsum.photos/id/237/200/300"
-      },
-      {
-        "id": "2",
-        "message": "I'm doing great, thanks for asking. How about you?",
-        "avatar": "https://picsum.photos/id/237/200/300"
-      },
-      {
-        "id": "2",
-        "message": "I'm doing great, thanks for asking. How about you?",
-        "avatar": "https://picsum.photos/id/237/200/300"
-      },
-      {
-        "id": "2",
-        "message": "I'm doing great, thanks for asking. How about you?",
-        "avatar": "https://picsum.photos/id/237/200/300"
       },
       {
         "id": "2",
