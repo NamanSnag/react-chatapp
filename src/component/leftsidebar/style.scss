@@ -11,6 +11,31 @@
     top: 0;
     background-color: rgb(255, 255, 255);
     padding: 20px 10px 10px 10px;
+
+    .user{
+      display: flex;
+      align-items: center;
+      width: 100%;
+      text-decoration: none;
+      background-color: rgba(0, 0, 0, 0.056);
+      height: 60px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+
+      img {
+        height: 50px;
+        width: 50px;
+        border-radius: 2rem;
+        border: 2px solid white;
+        margin: 10px;
+      }
+
+      h2{
+        color: rgb(2, 10, 16);
+        margin-left: 4px;
+      }
+    }
+
     .searchInput {
       width: 90%;
       outline: none;

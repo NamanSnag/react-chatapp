@@ -83,6 +83,13 @@
             align-items: center;
             justify-content: flex-end;
             gap: 6px;
+
+            h4 {
+                background-color: rgb(0, 166, 255);
+                color: white;
+                padding: 4px 10px;
+                border-radius: 4px;
+            }
         }
 
         .leftChat {
@@ -90,13 +97,13 @@
             align-items: center;
             justify-content: flex-start;
             gap: 6px;
-        }
 
-        h4 {
-            background-color: rgb(0, 166, 255);
-            color: white;
-            padding: 4px 10px;
-            border-radius: 4px;
+            h4 {
+                background-color: rgb(57, 180, 147);
+                color: white;
+                padding: 4px 10px;
+                border-radius: 4px;
+            }
         }
     }
 
